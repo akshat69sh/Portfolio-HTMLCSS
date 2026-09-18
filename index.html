@@ -13,20 +13,22 @@
     />
   </head>
   <body>
-    <label class="buttons__burger" for="burger">
-      <input type="checkbox" id="burger" />
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-
+    <div class="ham">
+      <label class="buttons__burger" for="burger">
+        <input type="checkbox" id="burger" />
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <span>Akshat Sharma</span>
+    </div>
     <div class="navBar">
       <span
         style="
-          color: white;
-          padding: 10px;
-          margin-left: 20px;
+          color: #ffffff;
+
           background-color: transparent;
+          padding-left: 30px;
         "
         >Akshat Sharma</span
       >
@@ -68,39 +70,39 @@
           >Contact</a
         >
       </div>
-      <div style="background-color: black; border-radius: 50px; padding: 10px">
+      <div class="statusBadge">
         <span class="statusDot"></span>
-        <span style="color: white">Available for hire</span>
+        <span>Available for hire</span>
       </div>
     </div>
     <section class="heroSec">
       <div class="heroSecLeft">
         <span class="badge">✦ Junior Web Developer</span>
         <h1>
-          Turning creative ideas into clean,
-          <span style="color: aqua">interactive web</span>.
+          Turning creative ideas into
+          <span style="color: #34d399; width: 100%">clean,interactive web</span
+          >.
         </h1>
         <p>
           Passionate developer focused on modern CSS, React, and responsive
           interfaces. Always building, learning, and shipping new experiments.
         </p>
         <div class="button">
-          <button class="btn">View My Projects</button
-          ><button class="btn">Hire Me</button>
+          <button id="btn1" class="btn">View My Projects</button
+          ><button id="btn2" class="btn">Hire Me</button>
         </div>
         <div class="tags">
           <div>
-            <span>5+</span><span style="color: gray">Repositories</span>
+            <span>5+</span><span style="color: #9ca3af">Repositories</span>
           </div>
-          <div><span>500+</span><span style="color: gray">Commits</span></div>
-          <div style="display: flex; margin-top: 13px">Open to work</div>
+          <div>
+            <span>500+</span><span style="color: #9ca3af">Commits</span>
+          </div>
         </div>
       </div>
       <div class="heroSecRight">
+        <span class="rightBadge">✦ Junior Web Developer</span>
         <img src="./IMG_4579.jpg" alt="" />
-        <div class="tag-info">
-          <span>AKSHAT SHARMA</span><span>Web Devloper</span>
-        </div>
       </div>
     </section>
   </body>

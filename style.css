@@ -1,3 +1,22 @@
+:root {
+  /* Brand & Accent */
+  --color-accent: #34d399;
+  --color-accent-hover: #5eead4;
+  --color-accent-bg: #062e25;
+
+  /* Backgrounds & Surfaces */
+  --color-bg-base: #08090a;
+  --color-bg-surface: #121316;
+  --color-bg-surface-hover: #1a1c20;
+
+  /* Borders */
+  --color-border: #26282e;
+
+  /* Typography */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #6b7280;
+}
 body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -5,40 +24,83 @@ body {
   font-style: normal;
 }
 * {
-  background-color: black;
-  /* margin: 0 2rem; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-bg-base);
+  color: #ffffff;
+}
+
+/* navbar */
+.navBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  margin: 20px auto;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  background-color: var(--color-bg-surface);
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+  padding: 10px;
+}
+.navItems a :hover{
+  color: var(--color-text-primary);
 }
 
 /* hamburger */
+.ham{
+  display: none;
+  align-items: center;
+  
+  margin-left: 3rem; 
+
+}
+.ham label{
+margin-top: 1rem; 
+width: 5%;
+}
+.ham span{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  font-size: 3rem;
+}
+/* From Uiverse.io by tarantino421 */
 .buttons__burger {
-  --size: 2.5rem;
-  --clr: #fff;
+  --size: 3rem;
+  --clr: white;
   width: var(--size);
   height: calc(0.7 * var(--size));
   cursor: pointer;
   position: relative;
-  display: inline-block;
-  box-sizing: border-box;
+  display: none;
+  margin: 1rem;
+  z-index: 1000px;
 }
 
-.buttons__burger * {
-  box-sizing: border-box;
-}
-
-/* Hide checkbox completely */
 .buttons__burger #burger {
   display: none;
+  width: 100%;
+  height: 100%;
 }
 
-/* The three bars (Resting State) */
 .buttons__burger span {
   display: block;
   position: absolute;
-  width: 25px;
-  height: 4px;
-  border-radius: 9999px;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 3px solid var(--clr);
   background-color: var(--clr);
-  transition: transform 0.25s ease, width 0.25s ease, top 0.25s ease;
+  transition: 0.15s ease-in-out;
 }
 
 .buttons__burger span:nth-of-type(1) {
@@ -59,181 +121,189 @@ body {
   transform: translateY(-100%);
 }
 
-/* Arrow State (When Clicked / Checked) */
 .buttons__burger #burger:checked ~ span:nth-of-type(1) {
+  transform: translateY(-30%) rotate(40deg);
+  width: 50%;
   top: 50%;
-  width: 55%;
-  transform: translateY(-50%) rotate(45deg);
 }
 
 .buttons__burger #burger:checked ~ span:nth-of-type(3) {
+  transform: translateY(-70%) rotate(-40deg);
+  width: 50%;
   top: 50%;
-  width: 55%;
-  transform: translateY(-50%) rotate(-45deg);
 }
 
-/* navbar design */
-
-.navBar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2rem 30rem;
-  padding: 10px;
-  border-radius: 50px;
-  background: gray;
-  align-items: center;
-  box-shadow: 2rem;
-}
+/* navitems */
 
 .navItems {
   display: flex;
-
-  border: none;
-  background: none;
-  gap: 20px;
+  justify-content: space-evenly;
+  width: 50%;
+}
+.navItems a{
+  color: var(--color-text-secondary);
 }
 
-.navItems a {
-  color: white;
+/* Status Button */
+.statusBadge{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-right: 20px;
 }
-
-.navItems a:hover {
-  cursor: pointer;
-  color: red;
-}
-
-.statusDot {
-  display: inline-block;
+.statusDot{
   height: 10px;
   width: 10px;
-  background-color: #22c55e;
+  color:  var(--color-accent);
+  border: var(--color-accent) solid;
   border-radius: 50%;
-  margin-right: 8px;
+  background-color: var(--color-accent);
 }
 
-/* hero section design */
 
-.heroSec {
+/* HERO SECTION */
+
+.heroSec{
   display: flex;
-  /* margin: 0 20rem; */
-  flex-direction: row;
+  width: 80%;
+  height: 100vh;
+  margin: auto;
+
 }
-.heroSecLeft {
+
+.heroSecLeft{
   display: flex;
   flex-direction: column;
-  width: 50%;
-  gap: 10px;
-}
-.badge {
-  height: auto;
-  border: #22c55e;
-  color: #32cc94;
-  border-radius: 50px;
-  text-align: left;
-  font-size: 20px;
-  padding-left: 20px;
-  background-color: #151d1c;
+  width: 60%;
+  height: 100%;
+  margin: 1.5rem auto;
+  gap: 2rem;
 }
 
-.heroSecLeft h1 {
-  font-size: 4rem;
-  color: white;
-  padding: 10px;
-}
-.heroSecLeft p {
-  color: white;
-  font-size: larger;
-  padding: 10px;
+.badge{
+  color: var(--color-accent);
+  border: 1px var(--color-accent-bg);
+  border-radius: 10px;
+  align-items: center;
+  background-color: var(--color-accent-bg);
+  width: 250px;
+  padding-left: 10px;
+  
 }
 
-.button {
-  display: flex;
-  gap: 10px;
+.heroSecLeft h1{
+  font-size: 4.5rem;
+  width: 100%;
 }
-.button button {
+.heroSecLeft h1 span{
+  font-size: 6rem;
+}
+.heroSecLeft p{
+  color: var(--color-text-secondary);
+  width: 100%;
+  
+  font-size: 1.5rem;
+}
+
+.heroSecRight{
   display: flex;
+  flex-direction: column;
+  width: 40%;
+  gap: 2rem;
+
+}
+.heroSecRight img{
+  width: 100%;
+  height: 700px;
+  border-radius: 2rem;
+  
+}
+.rightBadge{
+  color: var(--color-accent);
+  border: 1px var(--color-accent-bg);
+  border-radius: 10px;
+  align-items: center;
+  background-color: var(--color-accent-bg);
+  width: 250px;
+  padding-left: 10px;
+}
+.button{
+  display: flex;
+  justify-content: left;
+  gap: 20px;
+}
+.btn{
+  display: flex;
+  padding: 10px;
+  font-size: 1rem;
+  width: 10rem;
+  border-radius: 25px;
   text-decoration: none;
-  color: white;
-  border-radius: 20px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
   border: none;
-  background-color: #32cc94;
-  padding: 10px;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  
 }
-
-.btn:hover {
-  background-color: transparent;
-  color: black;
+#btn1{
+  background-color: var(--color-accent);
+}
+#btn1:hover{
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-text-primary);
   cursor: pointer;
 }
-.tags {
+#btn2{
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-text-primary);
+}
+#btn2:hover{
+  background-color: var(--color-accent);
+  color: var(--color-bg-surface);
+  cursor: pointer;
+}
+.tags{
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.tags span {
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
+  gap: 100px;
 
-.heroSecRight {
-  position: relative;
-  border-radius: 28px;
-  overflow: hidden;
-  width: 50%;
 }
-
-.heroSecRight img {
-  height: 100%;
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 28px;
-}
-.tag-info {
-  position: absolute;
-  color: white;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-
+.tags span{
   display: flex;
   flex-direction: column;
-
-  border-radius: 10px;
-}
-.tag-info span {
-  font-size: 25px;
+  color: var(--color-text-primary);
 }
 
 /* media query */
-@media (max-width: 767px) {
+@media (max-width: 1079px) {
   .navBar {
     display: none;
-  }
-  .heroSec {
-    display: flex;
-    flex-direction: column-reverse;
-    width: 100%;
-    height: fit-content;
-  }
-  .heroSecLeft {
-    width: 100%;
-  }
-  .heroSecRight {
-    width: 100%;
   }
   .buttons__burger {
     display: block;
   }
+  .heroSec{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    height: fit-content;
+  }
+  .heroSecRight {
+    width: 100%;
+  }
+  .heroSecLeft{
+    width: 100%;
+  }
+  .badge{
+    display: none;
+  }
+  .ham{
+    display: flex;
+  }
 }
-@media (min-width: 767px) {
-    .buttons__burger{
-        display: none;
-    }
+@media(min-width: 1080px){
+  .rightBadge{
+    display: none;
+  }
 }
