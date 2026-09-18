@@ -1,161 +1,239 @@
-body{
-font-family: "Inter", sans-serif;
-font-optical-sizing: auto;
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
 }
-*{
-    background-color: black;
+* {
+  background-color: black;
+  /* margin: 0 2rem; */
+}
+
+/* hamburger */
+.buttons__burger {
+  --size: 2.5rem;
+  --clr: #fff;
+  width: var(--size);
+  height: calc(0.7 * var(--size));
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.buttons__burger * {
+  box-sizing: border-box;
+}
+
+/* Hide checkbox completely */
+.buttons__burger #burger {
+  display: none;
+}
+
+/* The three bars (Resting State) */
+.buttons__burger span {
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: var(--clr);
+  transition: transform 0.25s ease, width 0.25s ease, top 0.25s ease;
+}
+
+.buttons__burger span:nth-of-type(1) {
+  top: 0;
+  right: 0;
+  transform-origin: right center;
+}
+
+.buttons__burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttons__burger span:nth-of-type(3) {
+  top: 100%;
+  right: 0;
+  transform-origin: right center;
+  transform: translateY(-100%);
+}
+
+/* Arrow State (When Clicked / Checked) */
+.buttons__burger #burger:checked ~ span:nth-of-type(1) {
+  top: 50%;
+  width: 55%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.buttons__burger #burger:checked ~ span:nth-of-type(3) {
+  top: 50%;
+  width: 55%;
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 /* navbar design */
 
-.navBar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 2rem 30rem ;
-    padding: 10px;
-    border-radius: 50px;
-    background: gray;
-    align-items: center;
-    box-shadow: 2rem;
-    
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2rem 30rem;
+  padding: 10px;
+  border-radius: 50px;
+  background: gray;
+  align-items: center;
+  box-shadow: 2rem;
 }
 
-.navItems{
-    display: flex;
+.navItems {
+  display: flex;
 
-    border: none;
-    background: none;
-    gap: 20px;
+  border: none;
+  background: none;
+  gap: 20px;
 }
 
-.navItems a{
-    color: white;
-    
+.navItems a {
+  color: white;
 }
 
-.navItems a:hover{
-    cursor: pointer;
-    color: red;
+.navItems a:hover {
+  cursor: pointer;
+  color: red;
 }
 
-.statusDot{
-    display:inline-block ;
-    height: 10px;
-    width: 10px;
-    background-color: #22c55e;
-    border-radius: 50%;
-    margin-right: 8px;
+.statusDot {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  margin-right: 8px;
 }
-
 
 /* hero section design */
 
-.heroSec{
+.heroSec {
+  display: flex;
+  /* margin: 0 20rem; */
+  flex-direction: row;
+}
+.heroSecLeft {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+}
+.badge {
+  height: auto;
+  border: #22c55e;
+  color: #32cc94;
+  border-radius: 50px;
+  text-align: left;
+  font-size: 20px;
+  padding-left: 20px;
+  background-color: #151d1c;
+}
+
+.heroSecLeft h1 {
+  font-size: 4rem;
+  color: white;
+  padding: 10px;
+}
+.heroSecLeft p {
+  color: white;
+  font-size: larger;
+  padding: 10px;
+}
+
+.button {
+  display: flex;
+  gap: 10px;
+}
+.button button {
+  display: flex;
+  text-decoration: none;
+  color: white;
+  border-radius: 20px;
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  border: none;
+  background-color: #32cc94;
+  padding: 10px;
+  gap: 10px;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+}
+.tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.tags span {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.heroSecRight {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  width: 50%;
+}
+
+.heroSecRight img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 28px;
+}
+.tag-info {
+  position: absolute;
+  color: white;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+}
+.tag-info span {
+  font-size: 25px;
+}
+
+/* media query */
+@media (max-width: 767px) {
+  .navBar {
+    display: none;
+  }
+  .heroSec {
     display: flex;
-    margin: 0 20rem;
-    flex-direction: row;
-}
-.heroSecLeft{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    gap: 10px;
-}
-.badge{
-    height: auto;
-    border: #22c55e ;
-    color: #32cc94;
-    border-radius: 50px;
-    text-align: left;
-    font-size: 20px;
-    padding-left: 20px;
-    background-color: #151d1c;
-
-}
-
-.heroSecLeft h1{
-    
-        font-size: 4rem;
-    color: white;
-    padding: 10px;   
-
-    
-}
-.heroSecLeft p{
-    color: white;
-    font-size: larger;
-    padding: 10px;
-}
-
-.button{
-    display: flex;
-    gap: 10px;
-
-}
-.button button{
-    display: flex;
-    text-decoration: none;
-    color: white;
-    border-radius: 20px;
-    width: auto;
-    height: auto;
-    font-size: 20px;
-    border:none;
-    background-color: #32cc94;
-    padding: 10px;
-    gap: 10px;
-}
-
-.btn:hover{
-    background-color: transparent;
-    color: black;
-    cursor: pointer;
-}
-.tags{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.tags span{
-    display: flex;
-    flex-direction: column;
-    color: white;
-}
-
-.heroSecRight{
-    position: relative;
-    border-radius: 28px;
-    overflow: hidden;
-    width: 50%;
-
-}
-
-.heroSecRight img{
-    height: 100%;
+    flex-direction: column-reverse;
     width: 100%;
+    height: fit-content;
+  }
+  .heroSecLeft {
+    width: 100%;
+  }
+  .heroSecRight {
+    width: 100%;
+  }
+  .buttons__burger {
     display: block;
-    object-fit: cover;
-    border-radius: 28px;
-    
+  }
 }
-.tag-info{
-    position: absolute;
-    color: white;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    
-    display: flex;
-    flex-direction: column;
-    
-    
-    border-radius: 10px;
-}
-.tag-info span{
-    
-    font-size: 25px;
-
+@media (min-width: 767px) {
+    .buttons__burger{
+        display: none;
+    }
 }
